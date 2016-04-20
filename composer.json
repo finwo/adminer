@@ -1,0 +1,12 @@
+{
+    "name": "finwo/adminer",
+    "require": {
+        "heroku/heroku-buildpack-php": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Robin Bron",
+            "email": "robin@finwo.nl"
+        }
+    ]
+}
