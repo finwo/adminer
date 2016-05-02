@@ -1,6 +1,6 @@
 {
     "name": "finwo/adminer",
-    "require": {
+    "require-dev": {
         "heroku/heroku-buildpack-php": "dev-master"
     },
     "authors": [
