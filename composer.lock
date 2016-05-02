@@ -4,21 +4,22 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a942f3b7bbafc5e0cdf3d66e5ec2ccd",
-    "content-hash": "a1c5e135469d56ebb1b74b6b2c719cd2",
-    "packages": [
+    "hash": "758c9dfb54e53b8f9008012343bb9854",
+    "content-hash": "3f9b10ebcb99f8972f3ef4c3ef05f7f7",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "efca12bb59ccdebec79cabddd94e7c1ef51de908"
+                "reference": "2c8d01ff3aab321d6a9a674d84b434bbacca3300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/efca12bb59ccdebec79cabddd94e7c1ef51de908",
-                "reference": "efca12bb59ccdebec79cabddd94e7c1ef51de908",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/2c8d01ff3aab321d6a9a674d84b434bbacca3300",
+                "reference": "2c8d01ff3aab321d6a9a674d84b434bbacca3300",
                 "shasum": ""
             },
             "bin": [
@@ -39,7 +40,7 @@
                 }
             ],
             "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
-            "homepage": "http://github.com/heroku/heroku-buildpack-php",
+            "homepage": "https://github.com/heroku/heroku-buildpack-php",
             "keywords": [
                 "apache",
                 "apache2",
@@ -49,10 +50,9 @@
                 "nginx",
                 "php"
             ],
-            "time": "2016-04-12 02:41:29"
+            "time": "2016-04-29 17:10:34"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
