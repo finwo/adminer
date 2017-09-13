@@ -7,7 +7,7 @@ function adminer_object() {
 
   // Autoloader
   foreach(glob("./plugins/*.php") as $file) {
-    include_once $filename;
+    include_once $file;
   }
 
   // Select plugins to enable
