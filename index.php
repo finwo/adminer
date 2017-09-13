@@ -1,7 +1,9 @@
 <?php
 
 // include plugins
-foreach(glob('plugin/*.php') as $file) {
+$files = glob('plugins/*.php');
+sort($files);
+foreach($files as $file) {
     include($file);
 }
 
