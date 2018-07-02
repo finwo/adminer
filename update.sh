@@ -15,8 +15,11 @@ ARRAYTEST[0]='test' || (echo 'Failure: arrays are not supported in this version 
 
 # Define the plugins here
 PLUGINS=(
-  'plugin'
+#  'dump-bz2'
   'dump-json'
+  'dump-xml'
+  'dump-zip'
+  'plugin'
 )
 
 # Actually download the new version files
