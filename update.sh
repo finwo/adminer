@@ -10,6 +10,29 @@ LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/
 FILENAME="adminer-"${LATEST_VERSION#?}".php"
 ARTIFACT_URL="https://github.com/vrana/adminer/releases/download/${LATEST_VERSION}/${FILENAME}"
 
-# Actually download the new version
-curl -L "${ARTIFACT_URL}" > ${FILENAME}
+# Make sure we support arrays
+ARRAYTEST[0]='test' || (echo 'Failure: arrays are not supported in this version of bash' && exit 2)
+
+# Define the plugins here
+PLUGINS=(
+  'plugin'
+  'dump-json'
+)
+
+# Actually download the new version files
+echo "Updating adminer"
+curl -Ls "${ARTIFACT_URL}" > ${FILENAME}
+
+# Count of the plugins
+count=0
+while [ "x${PLUGINS[count]}" != "x" ]; do
+  count=$(( $count + 1 ))
+done
+
+# Loop through them
+echo "Updating plugins"
+for i in $(seq 0 $(( $count - 1 )) ); do
+  echo " -" ${PLUGINS[i]}
+  curl -Ls "https://raw.githubusercontent.com/vrana/adminer/${LATEST_VERSION}/plugins/${PLUGINS[i]}.php" > plugins/${PLUGINS[i]}.php
+done
 
