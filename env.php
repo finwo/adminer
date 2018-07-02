@@ -1,11 +1,9 @@
 <?php
 
 function longest($input) {
-    $l = 0;
-    foreach ($input as $item) {
-        $l = max($l, strlen($item));
-    }
-    return $l;
+    return array_reduce($input, function( $car, $item ) {
+        return max($car,strlen($item));
+    }, 0);
 }
 
 print("<pre>");
