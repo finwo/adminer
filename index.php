@@ -6,12 +6,12 @@ function adminer_object() {
     require_once "./plugins/plugin.php";
 
     // Helper functions
+    // https://stackoverflow.com/a/2051010
     function file_get_php_classes($filepath) {
         $php_code = file_get_contents($filepath);
         $classes = get_php_classes($php_code);
         return $classes;
     }
-
     function get_php_classes($php_code) {
         $classes = array();
         $tokens = token_get_all($php_code);
