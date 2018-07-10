@@ -45,8 +45,8 @@ function adminer_object() {
 
 
 // Load the most recent adminer version
-require (function () {
+call_user_func(function () {
     $files = glob('adminer-*.php');
     sort($files);
     return array_pop($files);
-})();
+});
