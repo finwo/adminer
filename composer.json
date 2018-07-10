@@ -3,6 +3,12 @@
     "require-dev": {
         "heroku/heroku-buildpack-php": "@stable"
     },
+    "require": {
+      "php": "^5.5 || ^7.0",
+      "ext-mbstring": "*",
+      "ext-json": "*",
+      "ext-pdo": "*"
+    },
     "authors": [
         {
             "name": "Robin Bron",
