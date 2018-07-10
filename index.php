@@ -48,5 +48,5 @@ function adminer_object() {
 call_user_func(function () {
     $files = glob('adminer-*.php');
     sort($files);
-    return array_pop($files);
+    require(array_pop($files));
 });
