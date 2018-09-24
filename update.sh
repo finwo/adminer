@@ -18,6 +18,7 @@ PLUGINS=(
   'dump-json'
   'dump-xml'
   'dump-zip'
+  'foreign-system'
   'plugin'
 )
 
