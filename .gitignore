@@ -2,3 +2,4 @@
 .zedstate
 /vendor/
 /.gtm/
+/plugins/*.json

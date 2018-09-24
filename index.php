@@ -32,14 +32,23 @@ function adminer_object() {
     $plugins = array();
     foreach (glob("./plugins/*.php") as $file) {
         if($file=='./plugins/plugin.php') continue;
-        $classes = file_get_php_classes($file);
+        $classes    = file_get_php_classes($file);
+        $configFile = preg_replace('/.[^.]*$/','',$file).'.json';
+        $config     = file_exists($configFile) ? json_decode(file_get_contents($configFile), true) : null;
         require_once($file);
-        $plugins = array_merge($plugins,$classes);
+        foreach( $classes as $c ) {
+          array_push($plugins,[$c,$config]);
+        }
     }
 
   // Enable the found plugins
-  return new AdminerPlugin(array_map(function($class) {
-      return new $class();
+  return new AdminerPlugin(array_map(function($plugin) {
+      $rc  = new ReflectionClass(array_shift($plugin));
+      $arg = array_shift($plugin);
+      if (is_null($arg)) {
+          return $rc->newInstance();
+      }
+      return $rc->newInstance($arg);
   }, $plugins));
 }
 

@@ -15,7 +15,6 @@ ARRAYTEST[0]='test' || (echo 'Failure: arrays are not supported in this version 
 
 # Define the plugins here
 PLUGINS=(
-#  'dump-bz2'
   'dump-json'
   'dump-xml'
   'dump-zip'
@@ -24,6 +23,7 @@ PLUGINS=(
 
 # Actually download the new version files
 echo "Updating adminer"
+echo " -" ${LATEST_VERSION}
 curl -Ls "${ARTIFACT_URL}" > ${FILENAME}
 
 # Count of the plugins
@@ -35,7 +35,11 @@ done
 # Loop through them
 echo "Updating plugins"
 for i in $(seq 0 $(( $count - 1 )) ); do
-  echo " -" ${PLUGINS[i]}
-  curl -Ls "https://raw.githubusercontent.com/vrana/adminer/${LATEST_VERSION}/plugins/${PLUGINS[i]}.php" > plugins/${PLUGINS[i]}.php
+  echo " -" $(basename ${PLUGINS[i]})
+  if [[ ${PLUGINS[i]} == http* ]]; then
+    curl -Ls "${PLUGINS[i]}" > plugins/$(basename ${PLUGINS[i]})
+  else
+    curl -Ls "https://raw.githubusercontent.com/vrana/adminer/${LATEST_VERSION}/plugins/${PLUGINS[i]}.php" > plugins/${PLUGINS[i]}.php
+  fi
 done
 
